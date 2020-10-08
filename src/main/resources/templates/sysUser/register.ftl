@@ -1,17 +1,16 @@
 <#--
   User: wangxf
   Date: 2020/10/8 0008
-  Time: 18:49
+  Time: 19:46
  -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Login</title>
+    <title>register</title>
     <link rel="stylesheet" href="/layui/css/layui.css">
 </head>
 <script src="/layui/layui.js"></script>
-<script src="/js/login.js"></script>
 <body>
 <form class="layui-form" action="" id="login" style="margin-top: 30px">
     <div class="layui-form-item">
@@ -30,8 +29,7 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button type="submit" class="layui-btn layui-btn-radius layui-btn-normal" lay-submit="">登录</button>
-            <button type="submit" class="layui-btn layui-btn-radius layui-btn-primary" id="register">注册</button>
+            <button type="submit" class="layui-btn layui-btn-radius layui-btn-warm" lay-submit="">注册</button>
         </div>
     </div>
 </form>

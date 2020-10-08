@@ -42,4 +42,16 @@ public class SysUserController {
     }
 
 
+    @RequestMapping("/loginPage")
+    public String login() {
+        return "sysUser/login";
+    }
+
+
+    @RequestMapping("/registerPage")
+    public String register() {
+        return "sysUser/register";
+    }
+
+
 }
