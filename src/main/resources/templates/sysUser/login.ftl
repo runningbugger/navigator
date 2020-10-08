@@ -20,6 +20,7 @@
             <input type="tel" name="userName" lay-verify="title" autocomplete="off" placeholder="请输入用户名"
                    lay-reqtext="用户名是必填项，岂能为空？" class="layui-input">
         </div>
+
     </div>
     <div class="layui-form-item">
         <label class="layui-form-label">密码</label>
