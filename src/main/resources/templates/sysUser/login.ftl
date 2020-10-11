@@ -18,6 +18,7 @@
         <label class="layui-form-label">用户名</label>
         <div class="layui-input-inline">
             <input type="tel" name="userName" lay-verify="title" autocomplete="off" placeholder="请输入用户名"
+                   style="width: 70%"
                    lay-reqtext="用户名是必填项，岂能为空？" class="layui-input">
         </div>
     </div>
@@ -25,6 +26,7 @@
         <label class="layui-form-label">密码</label>
         <div class="layui-input-inline">
             <input type="password" name="password" lay-verify="required" lay-reqtext="密码是必填项，岂能为空？" placeholder="请输入"
+                   style="width: 70%"
                    autocomplete="off" class="layui-input">
         </div>
     </div>

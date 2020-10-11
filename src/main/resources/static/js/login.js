@@ -9,7 +9,7 @@ layui.use('layer', function () {
             shadeClose: true,
             //弹出框之外的地方是否可以点击
             //offset: '10%',
-            area: ['23%', '20%'],
+            area: ['400px', '300px'],
             content: '/sys-user/registerPage'
         });
     })

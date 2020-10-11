@@ -1,10 +1,13 @@
 package com.wxfer.navigator.controller;
 
+import com.alibaba.fastjson.JSONObject;
 import com.wxfer.navigator.entity.SysUser;
 import com.wxfer.navigator.service.ISysUserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 
@@ -28,17 +31,19 @@ public class SysUserController {
      * @author wangxf
      * @date 2020/10/06
      **/
-    @RequestMapping("/insert")
-    public String insert(ModelMap modelMap, SysUser sysUser) {
+    @RequestMapping(value = "/insert", method = RequestMethod.GET)
+    @ResponseBody
+    public SysUser insert(@RequestParam("regInfo") String sysUserStr) {
+        JSONObject jsonObject = JSONObject.parseObject(sysUserStr);
+        SysUser sysUser = JSONObject.toJavaObject(jsonObject, SysUser.class);
+        System.out.println(sysUser.getUserName());
         boolean isSuccess = iSysUserService.save(sysUser);
         if (isSuccess) {
             //注册成功
-            return "navWebMain/index";
         } else {
             //注册失败
-            modelMap.addAttribute("status", "失败");
-            return "sysUser/add";
         }
+        return sysUser;
     }
 
 
