@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="/layui/css/layui.css">
 </head>
 <script src="/layui/layui.js"></script>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script src="/js/login.js"></script>
 <body>
 <form class="layui-form" action="" id="login" style="margin-top: 30px">
@@ -32,7 +33,9 @@
     </div>
     <div class="layui-form-item">
         <div class="layui-input-block">
-            <button type="submit" class="layui-btn layui-btn-radius layui-btn-normal" lay-submit="">登录</button>
+            <button type="submit" class="layui-btn layui-btn-radius layui-btn-normal" lay-submit="" lay-filter="login">
+                登录
+            </button>
             <button type="submit" class="layui-btn layui-btn-radius layui-btn-primary" id="register">注册</button>
         </div>
     </div>

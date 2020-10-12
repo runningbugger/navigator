@@ -14,3 +14,31 @@ layui.use('layer', function () {
         });
     })
 })
+
+layui.use(['form'], function () {
+    const form = layui.form;
+    //监听提交
+    form.on('submit(login)', function (data) {
+        let loginInfo = JSON.stringify(data.field);
+        $.ajax({
+            url: '/sys-user/login',
+            type: 'get',
+            dataType: 'json',
+            contentType: "application/json",
+            data: {loginInfo: loginInfo},
+            success: function (data1) {
+
+                if (data1) {
+                    //设置session
+
+                    alert("登录成功");
+                    top.location.href = "/nav-web-main/index"
+                } else {
+                    alert("登录失败");
+                    layer.msg('注册失败');
+                }
+            }
+        })
+        return false;
+    })
+})

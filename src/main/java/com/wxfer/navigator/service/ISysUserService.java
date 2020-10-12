@@ -13,4 +13,14 @@ import com.wxfer.navigator.entity.SysUser;
  */
 public interface ISysUserService extends IService<SysUser> {
 
+
+    /**
+     * 登录
+     *
+     * @param userName
+     * @param password
+     * @return
+     */
+    SysUser login(String userName, String password);
+
 }

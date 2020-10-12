@@ -4,7 +4,7 @@ layui.use(['form'], function () {
     form.on('submit(reg)', function (data) {
         let regInfo = JSON.stringify(data.field);
         $.ajax({
-            url: '/sys-user/insert',
+            url: '/sys-user/register',
             type: 'get',
             dataType: 'json',
             contentType: "application/json",
@@ -12,9 +12,15 @@ layui.use(['form'], function () {
             success: function (data1) {
                 //let obj = JSON.parse(data1);
                 console.log(data1)
-                alert(data1.userName)
+                if (data1) {
+                    close("no");
+                    alert("注册成功");
+
+                } else {
+                    alert("注册失败");
+                    layer.msg('注册失败');
+                }
                 //top.location.href="http://baidu.com"
-                close("no")
             }
         })
         return false;

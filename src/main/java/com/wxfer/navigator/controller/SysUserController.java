@@ -26,14 +26,14 @@ public class SysUserController {
     private ISysUserService iSysUserService;
 
     /**
-     * 新增
+     * 注册
      *
      * @author wangxf
      * @date 2020/10/06
      **/
-    @RequestMapping(value = "/insert", method = RequestMethod.GET)
+    @RequestMapping(value = "/register", method = RequestMethod.GET)
     @ResponseBody
-    public SysUser insert(@RequestParam("regInfo") String sysUserStr) {
+    public Boolean register(@RequestParam("regInfo") String sysUserStr) {
         JSONObject jsonObject = JSONObject.parseObject(sysUserStr);
         SysUser sysUser = JSONObject.toJavaObject(jsonObject, SysUser.class);
         System.out.println(sysUser.getUserName());
@@ -43,7 +43,26 @@ public class SysUserController {
         } else {
             //注册失败
         }
-        return sysUser;
+        return isSuccess;
+    }
+
+
+    /**
+     * 登录
+     *
+     * @param sysUserStr
+     * @return
+     */
+    @RequestMapping(value = "/login", method = RequestMethod.GET)
+    @ResponseBody
+    public SysUser login(@RequestParam("loginInfo") String sysUserStr) {
+        JSONObject jsonObject = JSONObject.parseObject(sysUserStr);
+        SysUser sysUser = JSONObject.toJavaObject(jsonObject, SysUser.class);
+
+        SysUser sysUser1 = iSysUserService.login(sysUser.getUserName(), sysUser.getPassword());
+        //登录成功使用token，用redis
+
+        return sysUser1;
     }
 
 
